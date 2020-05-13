@@ -13,16 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+//Route::get('/', function () {
+//    return view('index');
+//});
 
 Route::get('/auth/redirect/{provider}', 'SocialController@redirect')->name('social.login');
 Route::get('/auth/callback/{provider}', 'SocialController@callback');
 
 
 Auth::routes([
-    'verify' => true
+  //  'verify' => true
 ]);
 
-Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
+Route::get('/topic/create', 'TopicController@create')->name('topic')->middleware('auth');
+Route::post('/topic','TopicController@store');
+Route::get('topic/index','TopicController@index');
+
