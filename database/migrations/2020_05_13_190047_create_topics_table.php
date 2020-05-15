@@ -18,6 +18,7 @@ class CreateTopicsTable extends Migration
             $table->timestamps();
             $table->string('name');
             $table->string('body');
+            $table->string('thread_id')->nullable();
         });
     }
 

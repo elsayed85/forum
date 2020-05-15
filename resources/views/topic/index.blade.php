@@ -1,80 +1,87 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Forum - Responsive HTML5 Template</title>
-    <meta name="keywords" content="HTML5 Template">
-    <meta name="description" content="Forum - Responsive HTML5 Template">
-    <meta name="author" content="Forum">
-    <link rel="shortcut icon" href="favicon/favicon.ico">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="/assets/css/style.css">
-</head>
-<div class="tt-topic-list tt-offset-top-30">
-    <div class="tt-list-search">
-        <div class="tt-title">Suggested Topics</div>
-        <!-- tt-search -->
-        <div class="tt-search">
-            <form class="search-wrapper">
-                <div class="search-form">
-                    <input type="text" class="tt-search__input" placeholder="Search for topics">
-                    <button class="tt-search__btn" type="submit">
+<x-master>
+
+    <main id="tt-pageContent" class="tt-offset-small">
+        <div class="container">
+
+
+
+                @guest
+                    <div class="tt-item tt-item-popup">
+                        <div class="tt-col-avatar">
+                            <svg class="tt-icon">
+                                <use xlink:href="#icon-ava-f"></use>
+                            </svg>
+                        </div>
+                        <div class="tt-col-message">
+                            Looks like you are new here. Register for free, learn and contribute.
+                        </div>
+                        <div class="tt-col-btn">
+                            <button type="button" class="btn btn-primary">Log in</button>
+                            <button type="button" class="btn btn-secondary">Sign up</button>
+                            <button type="button" class="btn-icon">
+                                <svg class="tt-icon">
+                                    <use xlink:href="#icon-cancel"></use>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                @endguest
+                    <div class="tt-topic-list">
+                @foreach($topics as $topic)
+
+                            <div class="tt-list-header">
+                                <div class="tt-col-topic">Topic</div>
+                                <div class="tt-col-category">Details :</div>
+                                <div class="tt-col-value hide-mobile"> Threads</div>
+                                <div class="tt-col-value hide-mobile"> Replies</div>
+                                <div class="tt-col-value hide-mobile">Views</div>
+                                <div class="tt-col-value">Latest Activity</div>
+                            </div>
+                <div class="tt-item">
+                    <div class="tt-col-avatar">
                         <svg class="tt-icon">
-                            <use xlink:href="#icon-search"></use>
+                            <use xlink:href="#icon-ava-s"></use>
                         </svg>
-                    </button>
-                    <button class="tt-search__close">
-                        <svg class="tt-icon">
-                            <use xlink:href="#icon-cancel"></use>
-                        </svg>
-                    </button>
+                    </div>
+                    <div class="tt-col-description">
+                        <h6 class="tt-title"><a href="/topic/{{$topic->id}}/threads">
+                                {{$topic->name}}
+                            </a></h6>
+                        <div class="row align-items-center no-gutters">
+                            <div class="col-11">
+                                <ul class="tt-list-badge">
+                                    <li class="show-mobile"><a href="#"><span
+                                                class="tt-color03 tt-badge">exchange</span></a></li>
+                                    <li><a href="#"><span class="tt-badge">themeforest</span></a></li>
+                                    <li><a href="#"><span class="tt-badge">elements</span></a></li>
+                                </ul>
+                            </div>
+                            <div class="col-1 ml-auto show-mobile">
+                                <div class="tt-value">4d</div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <a href="/topic/{{$topic->id}}/threads"> <div class="tt-col-category">
+                            <span class="tt-color03 tt-badge">Show threads</span></div></a>
+                    <div class="tt-col-value hide-mobile">37</div>
+                    <div class="tt-col-value tt-color-select hide-mobile">31</div>
+                    <div class="tt-col-value hide-mobile">257</div>
+                    <div class="tt-col-value hide-mobile">4d</div>
                 </div>
-            </form>
-        </div>
-        <!-- /tt-search -->
-    </div>
-    <div class="tt-list-header tt-border-bottom">
-        <div class="tt-col-topic">Topic</div>
-        <div class="tt-col-category">Category</div>
-        <div class="tt-col-value hide-mobile">Likes</div>
-        <div class="tt-col-value hide-mobile">Replies</div>
-        <div class="tt-col-value hide-mobile">Views</div>
-        <div class="tt-col-value">Activity</div>
-    </div>
-    <div class="tt-item">
-        <div class="tt-col-avatar">
-            <svg class="tt-icon">
-                <use xlink:href="#icon-ava-n"></use>
-            </svg>
-        </div>
+                @endforeach
 
-        @foreach($topics as $topic)
-            <div class="tt-col-description">
-                <h6 class="tt-title"><a href="#">
+                <div class="tt-row-btn">
+                    <button type="button" class="btn-icon js-topiclist-showmore">
                         <svg class="tt-icon">
-                            <use xlink:href="#icon-locked"></use>
+                            <use xlink:href="#icon-load_lore_icon"></use>
                         </svg>
-
-                        {{$topic->name}}
-
-                    </a></h6>
-                <div class="row align-items-center no-gutters hide-desktope">
-                    <div class="col-auto">
-                        <ul class="tt-list-badge">
-                            <li class="show-mobile"><a href="#"><span class="tt-color06 tt-badge">movies</span></a></li>
-                        </ul>
-                    </div>
-                    <div class="col-auto ml-auto show-mobile">
-                        <div class="tt-value">2d</div>
-                    </div>
+                    </button>
                 </div>
             </div>
-            <div class="tt-col-category"><span class="tt-color06 tt-badge">movies</span></div>
-            <div class="tt-col-value hide-mobile">674</div>
-            <div class="tt-col-value tt-color-select  hide-mobile">29</div>
-            <div class="tt-col-value hide-mobile">1.3k</div>
-            <div class="tt-col-value hide-mobile">2d</div>
-    </div>
-@endforeach
-</div>
+        </div>
+    </main>
+
+
+</x-master>

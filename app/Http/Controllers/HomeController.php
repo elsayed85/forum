@@ -25,6 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $topics=Topic::all();
+        return view('topic.index',compact('topics'));
     }
 }

@@ -18,6 +18,7 @@ class CreateThreadsTable extends Migration
             $table->timestamps();
             $table->foreignId('topic_id');
             $table->string('name');
+            $table->string('body');
             $table->foreignId('comment_id')->nullable();
             $table->foreignId('user_id')->nullable();
 

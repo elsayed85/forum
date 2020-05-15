@@ -1,74 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Forum - Responsive HTML5 Template</title>
-    <meta name="keywords" content="HTML5 Template">
-    <meta name="description" content="Forum - Responsive HTML5 Template">
-    <meta name="author" content="Forum">
-    <link rel="shortcut icon" href="favicon/favicon.ico">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="/assets/css/style.css">
-</head>
-<body>
-<!-- tt-mobile menu -->
-<nav class="panel-menu" id="mobile-menu">
-    <ul>
-
-    </ul>
-    <div class="mm-navbtn-names">
-        <div class="mm-closebtn">
-            Close
-            <div class="tt-icon">
-                <svg>
-                  <use xlink:href="#icon-cancel"></use>
-                </svg>
-            </div>
-        </div>
-        <div class="mm-backbtn">Back</div>
-    </div>
-</nav>
-<header id="tt-header">
-    <div class="container">
-        <div class="row tt-row no-gutters">
-            <div class="col-auto">
-                <!-- toggle mobile menu -->
-                <a class="toggle-mobile-menu" href="#">
-                    <svg class="tt-icon">
-                      <use xlink:href="#icon-menu_icon"></use>
-                    </svg>
-                </a>
-                <!-- /toggle mobile menu -->
-                <!-- logo -->
-                <div class="tt-logo">
-                    <a href="index.html"><img src="assets/images/logo.png" alt=""></a>
-                </div>
-
-               @include('_desktop-menu')
-                @include('_search')
-                <!-- /tt-search -->
-            </div>
-            <div class="col-auto ml-auto">
-                 <div class="tt-user-info d-flex justify-content-center">
-                    <a href="#" class="tt-btn-icon">
-                         <i class="tt-icon"><svg><use xlink:href="#icon-notification"></use></svg></i>
-                    </a>
-                    <div class="tt-avatar-icon tt-size-md">
-                        <i class="tt-icon"><svg><use xlink:href="#icon-ava-a"></use></svg></i>
-                    </div>
-                    <div class="custom-select-01">
-                        <select>
-                            <option value="Default Sorting">azyrusmax</option>
-                            <option value="value 01">value 01</option>
-                            <option value="value 02">value 02</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
+<x-master>
 <main id="tt-pageContent">
     <div class="container">
         <div class="tt-wrapper-inner">
@@ -188,24 +118,6 @@
                 </div>
             </form>
         </div>
-
-        @error('body')
-        <p class="text-red-500 text-sm" >
-            {{$message}}
-        </p>
-        @enderror
-
-        @error('name')
-        <p class="text-red-500 text-sm" >
-            {{$message}}
-        </p>
-@enderror
-@include('_suggested-topics')
-
-
-
-
-
-
-</body>
-</html>
+    </div>
+</main>
+</x-master>
