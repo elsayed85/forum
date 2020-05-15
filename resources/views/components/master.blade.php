@@ -31,15 +31,7 @@
             <div class="mm-backbtn">Back</div>
         </div>
     </nav>
-    <header id="tt-header" >
-        <div class="container ">
-            @include('_mobile-shit')
-            @include('_search')
-            @include('_desktop-menu')
 
-        </div>
-
-    </header>
 
 
     {{$slot}}

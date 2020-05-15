@@ -12,4 +12,8 @@ class Topic extends Model
     {
         return $this->hasMany(Thread::class);
     }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -1,5 +1,7 @@
 <x-master>
-    @foreach($topic as $topic)
+
+    @foreach($topic->threads as $thread)
+
         <div class="tt-single-topic-list">
             <div class="tt-item">
                 <div class="tt-single-topic">
@@ -9,7 +11,7 @@
                                 <i class="tt-icon"><svg><use xlink:href="#icon-ava-d"></use></svg></i>
                             </div>
                             <div class="tt-avatar-title">
-                                <a href="#">dylan89</a>
+                                <a href="#">{{$topic->user->username}}</a>
                             </div>
                             <a href="#" class="tt-info-time">
                                 <i class="tt-icon"><svg><use xlink:href="#icon-time"></use></svg></i>6 Jan,2019
@@ -20,17 +22,18 @@
                         </h3>
                         <div class="tt-item-tag">
                             <ul class="tt-list-badge">
-                                <li><a href="#"><span class="tt-color03 tt-badge">exchange</span></a></li>
+                                <li><a href="threads/{{@$thread->id}}"><span class="tt-color03 tt-badge">Go to Thread</span></a></li>
                                 <li><a href="#"><span class="tt-badge">themeforest</span></a></li>
                                 <li><a href="#"><span class="tt-badge">elements</span></a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="tt-item-description">
-                        <h6 class="tt-title">{{$topic->threads()->name}}</h6>
+                        <h1 class="">{{@$thread->name}}</h1>
+
                         <p>
 
-                            {{$topic->threads()->body }}
+                            {{@$thread->body  }}
 
                         </p>
                     </div>

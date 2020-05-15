@@ -19,7 +19,11 @@ class TopicController extends Controller
             'body'=>'required'
         ]);
 
-        $topic= Topic::create($att);
+        $topic= Topic::create([
+            'name'=>$att['name'],
+            'body'=>$att['body'],
+            'user_id'=>auth()->user()->id,
+        ]);
 
         return  back();
     }
@@ -38,11 +42,16 @@ class TopicController extends Controller
     public function update(Topic $topic)
     {
         $att= \request()->validate([
+
             'name'=>'required',
             'body'=>'required'
         ]);
        $topic->update($att);
 
         return redirect(view('topic.index'));
+    }
+    public function show(Topic $topic)
+    {
+        return view('topic.show',compact('topic'));
     }
 }

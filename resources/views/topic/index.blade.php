@@ -1,5 +1,15 @@
 <x-master>
 
+    <header id="tt-header" >
+        <div class="container ">
+            @include('_mobile-shit')
+            @include('_search')
+            @include('_desktop-menu')
+
+        </div>
+
+    </header>
+
     <main id="tt-pageContent" class="tt-offset-small">
         <div class="container">
 
@@ -44,7 +54,7 @@
                         </svg>
                     </div>
                     <div class="tt-col-description">
-                        <h6 class="tt-title"><a href="/topic/{{$topic->id}}/threads">
+                        <h6 class="tt-title"><a href="/topic/{{$topic->id}}">
                                 {{$topic->name}}
                             </a></h6>
                         <div class="row align-items-center no-gutters">
@@ -63,8 +73,10 @@
                     </div>
 
 
-                    <a href="/topic/{{$topic->id}}/threads"> <div class="tt-col-category">
+                    <a href="/topic/{{$topic->id}}"> <div class="tt-col-category">
                             <span class="tt-color03 tt-badge">Show threads</span></div></a>
+                    <a href="/topic/{{$topic->id}}/threads/create"> <div class="tt-col-category">
+                            <span class="tt-color03 tt-badge">Create new thread</span></div></a>
                     <div class="tt-col-value hide-mobile">37</div>
                     <div class="tt-col-value tt-color-select hide-mobile">31</div>
                     <div class="tt-col-value hide-mobile">257</div>

@@ -1,98 +1,97 @@
 <x-master>
-    @foreach(@$thread as $thread)
-        @dump($thread)
 
-        <div class="tt-single-topic-list">
-    <div class="tt-item">
-        <div class="tt-single-topic">
-            <div class="tt-item-header">
-                <div class="tt-item-info info-top">
-                    <div class="tt-avatar-icon">
-                        <i class="tt-icon"><svg><use xlink:href="#icon-ava-d"></use></svg></i>
+    <header id="tt-header" >
+        <div class="container ">
+            @include('_mobile-shit')
+            @include('_search')
+            @include('_desktop-menu')
+
+        </div>
+
+    </header>
+
+    <main id="tt-pageContent" class="tt-offset-small">
+        <div class="container">
+
+
+
+            @guest
+                <div class="tt-item tt-item-popup">
+                    <div class="tt-col-avatar">
+                        <svg class="tt-icon">
+                            <use xlink:href="#icon-ava-f"></use>
+                        </svg>
                     </div>
-                    <div class="tt-avatar-title">
-                        <a href="#">dylan89</a>
+                    <div class="tt-col-message">
+                        Looks like you are new here. Register for free, learn and contribute.
                     </div>
-                    <a href="#" class="tt-info-time">
-                        <i class="tt-icon"><svg><use xlink:href="#icon-time"></use></svg></i>6 Jan,2019
-                    </a>
+                    <div class="tt-col-btn">
+                        <button type="button" class="btn btn-primary">Log in</button>
+                        <button type="button" class="btn btn-secondary">Sign up</button>
+                        <button type="button" class="btn-icon">
+                            <svg class="tt-icon">
+                                <use xlink:href="#icon-cancel"></use>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
-                <h3 class="tt-item-title">
-                    <a href="#">Web Hosting Packages for ThemeForest WordPress</a>
-                </h3>
-                <div class="tt-item-tag">
-                    <ul class="tt-list-badge">
-                        <li><a href="#"><span class="tt-color03 tt-badge">exchange</span></a></li>
-                        <li><a href="#"><span class="tt-badge">themeforest</span></a></li>
-                        <li><a href="#"><span class="tt-badge">elements</span></a></li>
-                    </ul>
+            @endguest
+            <div class="tt-topic-list">
+                @foreach($threads as $thread)
+
+                    <div class="tt-list-header">
+                        <div class="tt-col-topic">Thread</div>
+                        <div class="tt-col-category">Details :</div>
+                        <div class="tt-col-value hide-mobile"> Replies</div>
+                        <div class="tt-col-value hide-mobile"> likes</div>
+                        <div class="tt-col-value hide-mobile">Views</div>
+                        <div class="tt-col-value">Latest Activity</div>
+                    </div>
+                    <div class="tt-item">
+                        <div class="tt-col-avatar">
+                            <svg class="tt-icon">
+                                <use xlink:href="#icon-ava-s"></use>
+                            </svg>
+                        </div>
+                        <div class="tt-col-description">
+                            <h6 class="tt-title"><a href="/topic/{{@$thread->id}}">
+                                    {{@$thread->name}}
+                                </a></h6>
+                            <div class="row align-items-center no-gutters">
+                                <div class="col-11">
+                                    <ul class="tt-list-badge">
+                                        <li class="show-mobile"><a href="#"><span
+                                                    class="tt-color03 tt-badge">exchange</span></a></li>
+                                        <li><a href="#"><span class="tt-badge">themeforest</span></a></li>
+                                        <li><a href="#"><span class="tt-badge">elements</span></a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-1 ml-auto show-mobile">
+                                    <div class="tt-value">4d</div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <a href="topic/threads/{{@$thread->id}}"> <div class="tt-col-category">
+                                <span class="tt-color03 tt-badge">Show thread</span></div></a>
+                        <div class="tt-col-value hide-mobile">37</div>
+                        <div class="tt-col-value tt-color-select hide-mobile">31</div>
+                        <div class="tt-col-value hide-mobile">257</div>
+                        <div class="tt-col-value hide-mobile">4d</div>
+                    </div>
+                @endforeach
+
+                <div class="tt-row-btn">
+                    <button type="button" class="btn-icon js-topiclist-showmore">
+                        <svg class="tt-icon">
+                            <use xlink:href="#icon-load_lore_icon"></use>
+                        </svg>
+                    </button>
                 </div>
-            </div>
-            <div class="tt-item-description">
-                <h6 class="tt-title">{{@$thread->name}}</h6>
-                <p>
-
-                    {{@$thread->body  }}
-
-                </p>
-            </div>
-            <div class="tt-item-info info-bottom">
-                <a href="#" class="tt-icon-btn">
-                    <i class="tt-icon"><svg><use xlink:href="#icon-like"></use></svg></i>
-                    <span class="tt-text">671</span>
-                </a>
-                <a href="#" class="tt-icon-btn">
-                    <i class="tt-icon"><svg><use xlink:href="#icon-dislike"></use></svg></i>
-                    <span class="tt-text">39</span>
-                </a>
-                <a href="#" class="tt-icon-btn">
-                    <i class="tt-icon"><svg><use xlink:href="#icon-favorite"></use></svg></i>
-                    <span class="tt-text">12</span>
-                </a>
-                <div class="col-separator"></div>
-                <a href="#" class="tt-icon-btn tt-hover-02 tt-small-indent">
-                    <i class="tt-icon"><svg><use xlink:href="#icon-share"></use></svg></i>
-                </a>
-                <a href="#" class="tt-icon-btn tt-hover-02 tt-small-indent">
-                    <i class="tt-icon"><svg><use xlink:href="#icon-flag"></use></svg></i>
-                </a>
-                <a href="#" class="tt-icon-btn tt-hover-02 tt-small-indent">
-                    <i class="tt-icon"><svg><use xlink:href="#icon-reply"></use></svg></i>
-                </a>
             </div>
         </div>
-    </div>
-    <div class="tt-item">
-        <div class="tt-info-box">
-            <h6 class="tt-title">Thread Status</h6>
-            <div class="tt-row-icon">
-                <div class="tt-item">
-                    <a href="#" class="tt-icon-btn tt-position-bottom">
-                        <i class="tt-icon"><svg><use xlink:href="#icon-reply"></use></svg></i>
-                        <span class="tt-text">283</span>
-                    </a>
-                </div>
-                <div class="tt-item">
-                    <a href="#" class="tt-icon-btn tt-position-bottom">
-                        <i class="tt-icon"><svg><use xlink:href="#icon-view"></use></svg></i>
-                        <span class="tt-text">10.5k</span>
-                    </a>
-                </div>
-                <div class="tt-item">
-                    <a href="#" class="tt-icon-btn tt-position-bottom">
-                        <i class="tt-icon"><svg><use xlink:href="#icon-user"></use></svg></i>
-                        <span class="tt-text">168</span>
-                    </a>
-                </div>
-                <div class="tt-item">
-                    <a href="#" class="tt-icon-btn tt-position-bottom">
-                        <i class="tt-icon"><svg><use xlink:href="#icon-like"></use></svg></i>
-                        <span class="tt-text">2.4k</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-    @endforeach
+    </main>
+
+
 </x-master>

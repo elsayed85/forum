@@ -48,4 +48,5 @@ class User extends Authenticatable implements MustVerifyEmail
         }
         $this->attributes['username'] = Str::slug($value);
     }
+
 }

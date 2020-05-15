@@ -2,10 +2,17 @@
 
 namespace App;
 
+use CyrildeWit\EloquentViewable\Contracts\Viewable;
+use CyrildeWit\EloquentViewable\InteractsWithViews;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
-class Thread extends Model
+class Thread extends Model implements Viewable
 {
+
+    use InteractsWithViews;
+
     protected $guarded=[];
 
     public function topic()
@@ -16,4 +23,5 @@ class Thread extends Model
     {
         return $this->hasMany(Comment::class);
     }
+
 }

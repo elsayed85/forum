@@ -8,7 +8,7 @@
                 <form method="POST" action="/topic/{{$topic->id}}/threads" class="form-default form-create-topic " >
                     @csrf
                     <div class="form-group">
-                        <label for="inputTopicTitle">Topic Title</label>
+                        <label for="inputTopicTitle">Thread Title</label>
                         <div class="tt-value-wrapper">
                             <input type="text" name="name" class="form-control" id="inputTopicTitle" placeholder="Subject of your topic">
                             <span class="tt-value-input">99</span>

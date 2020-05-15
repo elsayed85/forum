@@ -1,6 +1,5 @@
 <x-master>
-    @dump($thread)
-    @foreach($thread as $thread)
+
         <div class="tt-single-topic-list">
             <div class="tt-item">
                 <div class="tt-single-topic">
@@ -10,14 +9,14 @@
                                 <i class="tt-icon"><svg><use xlink:href="#icon-ava-d"></use></svg></i>
                             </div>
                             <div class="tt-avatar-title">
-                                <a href="#">dylan89</a>
+                                <a href="#">{{@$thread->topic->user->username}}</a>
                             </div>
                             <a href="#" class="tt-info-time">
                                 <i class="tt-icon"><svg><use xlink:href="#icon-time"></use></svg></i>6 Jan,2019
                             </a>
                         </div>
                         <h3 class="tt-item-title">
-                            <a href="#">Web Hosting Packages for ThemeForest WordPress</a>
+                            <a href="#">{{@$thread->topic->name}}</a>
                         </h3>
                         <div class="tt-item-tag">
                             <ul class="tt-list-badge">
@@ -28,10 +27,11 @@
                         </div>
                     </div>
                     <div class="tt-item-description">
-                        <h6 class="tt-title">{{$thread->name}}</h6>
+                        <h1 class="">{{@$thread->name}}</h1>
+
                         <p>
 
-                            {{$thread->body  }}
+                            {{@$thread->body  }}
 
                         </p>
                     </div>
@@ -74,7 +74,7 @@
                         <div class="tt-item">
                             <a href="#" class="tt-icon-btn tt-position-bottom">
                                 <i class="tt-icon"><svg><use xlink:href="#icon-view"></use></svg></i>
-                                <span class="tt-text">10.5k</span>
+                                <span class="tt-text">{{@$thread->views->count()}}</span>
                             </a>
                         </div>
                         <div class="tt-item">
@@ -89,9 +89,17 @@
                                 <span class="tt-text">2.4k</span>
                             </a>
                         </div>
+
+
                     </div>
                 </div>
             </div>
         </div>
-    @endforeach
+
+
+    @include('_a-comment')
+    @include('_make-comment')
+
+
+    @dump(2)
 </x-master>
