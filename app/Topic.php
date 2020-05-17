@@ -2,10 +2,13 @@
 
 namespace App;
 
+use CyrildeWit\EloquentViewable\Contracts\Viewable;
+use CyrildeWit\EloquentViewable\InteractsWithViews;
 use Illuminate\Database\Eloquent\Model;
-
-class Topic extends Model
+use Carbon\Carbon;
+class Topic extends Model implements Viewable
 {
+    use InteractsWithViews;
     protected $guarded=[];
 
     public function threads()
@@ -15,5 +18,9 @@ class Topic extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+    public function posted_at()
+    {
+        return $this->created_at->diffForHumans(Carbon::now());
     }
 }

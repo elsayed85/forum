@@ -5,7 +5,7 @@
                 <h1 class="tt-title-border">
                     Create New Topic
                 </h1>
-                <form method="POST" action="/topic/{{$topic->id}}/threads" class="form-default form-create-topic " >
+                <form method="POST" action="/topic/{{$topic->id}}" class="form-default form-create-topic " >
                     @csrf
                     <div class="form-group">
                         <label for="inputTopicTitle">Thread Title</label>

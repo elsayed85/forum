@@ -1,6 +1,6 @@
 <x-master>
 
-    <header id="tt-header" >
+    <header id="tt-header" class="">
         <div class="container ">
             @include('_mobile-shit')
             @include('_search')
@@ -12,8 +12,6 @@
 
     <main id="tt-pageContent" class="tt-offset-small">
         <div class="container">
-
-
 
                 @guest
                     <div class="tt-item tt-item-popup">
@@ -42,8 +40,7 @@
                             <div class="tt-list-header">
                                 <div class="tt-col-topic">Topic</div>
                                 <div class="tt-col-category">Details :</div>
-                                <div class="tt-col-value hide-mobile"> Threads</div>
-                                <div class="tt-col-value hide-mobile"> Replies</div>
+                                <div class="tt-col-value hide-mobile mr-3"> Threads</div>
                                 <div class="tt-col-value hide-mobile">Views</div>
                                 <div class="tt-col-value">Latest Activity</div>
                             </div>
@@ -76,11 +73,11 @@
                     <a href="/topic/{{$topic->id}}"> <div class="tt-col-category">
                             <span class="tt-color03 tt-badge">Show threads</span></div></a>
                     <a href="/topic/{{$topic->id}}/threads/create"> <div class="tt-col-category">
-                            <span class="tt-color03 tt-badge">Create new thread</span></div></a>
-                    <div class="tt-col-value hide-mobile">37</div>
-                    <div class="tt-col-value tt-color-select hide-mobile">31</div>
-                    <div class="tt-col-value hide-mobile">257</div>
-                    <div class="tt-col-value hide-mobile">4d</div>
+                            <span class="tt-color03 tt-badge ml-2">Create thread</span></div></a>
+                    <div class="tt-col-value hide-mobile ml-5">{{$topic->threads->count()}}</div>
+
+                    <div class="tt-col-value hide-mobile">{{$topic->views->count()}}</div>
+                    <div class="tt-col-value hide-mobile">{{$topic->posted_at()}}</div>
                 </div>
                 @endforeach
 

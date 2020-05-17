@@ -52,6 +52,7 @@ class TopicController extends Controller
     }
     public function show(Topic $topic)
     {
+        views($topic)->record();
         return view('topic.show',compact('topic'));
     }
 }

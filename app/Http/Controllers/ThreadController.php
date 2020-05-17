@@ -23,20 +23,27 @@ class ThreadController extends Controller
 
         $thread= $topic->threads()->create($att);
 
+
         return view('topic.threads.index');
     }
     public function show(Thread $thread)
     {
 
-           views($thread)->record();
 
-        return view('topic.threads.show',compact('thread'));
+        views($thread)->record();
+
+
+
+        return view('topic.threads.show', compact('thread'));
     }
-    //all the threads from different topics
-    public function index()
-    {
-        $threads=Thread::all();
-        return view('topic.threads.index',compact('threads'));
-    }
+        //all the threads from different topics
+        public
+        function index()
+        {
+            $threads = Thread::all();
+            return view('topic.threads.index', compact('threads'));
+        }
+
+
 
 }

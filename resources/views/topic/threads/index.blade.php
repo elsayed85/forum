@@ -15,6 +15,7 @@
 
 
 
+
             @guest
                 <div class="tt-item tt-item-popup">
                     <div class="tt-col-avatar">

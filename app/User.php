@@ -2,15 +2,19 @@
 
 namespace App;
 
+use Cog\Contracts\Love\Reacter\Facades\Reacter as ReacterFacade;
+use Cog\Contracts\Love\Reacter\Models\Reacter;
+use Cog\Contracts\Love\Reacterable\Models\Reacterable as ReacterableContract;
+use Cog\Laravel\Love\Reacterable\Models\Traits\Reacterable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable implements MustVerifyEmail, ReacterableContract
 {
     use Notifiable;
-
+    use Reacterable;
     /**
      * The attributes that are mass assignable.
      *
@@ -48,5 +52,7 @@ class User extends Authenticatable implements MustVerifyEmail
         }
         $this->attributes['username'] = Str::slug($value);
     }
+
+
 
 }

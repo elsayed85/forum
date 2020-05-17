@@ -14,7 +14,7 @@
                                 <a href="#">{{$topic->user->username}}</a>
                             </div>
                             <a href="#" class="tt-info-time">
-                                <i class="tt-icon"><svg><use xlink:href="#icon-time"></use></svg></i>6 Jan,2019
+                                <i class="tt-icon"><svg><use xlink:href="#icon-time"></use></svg></i>{{@$thread->posted_at()}}
                             </a>
                         </div>
                         <h3 class="tt-item-title">
@@ -76,7 +76,7 @@
                         <div class="tt-item">
                             <a href="#" class="tt-icon-btn tt-position-bottom">
                                 <i class="tt-icon"><svg><use xlink:href="#icon-view"></use></svg></i>
-                                <span class="tt-text">10.5k</span>
+                                <span class="tt-text">{{@$thread->views->count()}}</span>
                             </a>
                         </div>
                         <div class="tt-item">

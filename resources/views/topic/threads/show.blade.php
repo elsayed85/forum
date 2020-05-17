@@ -12,7 +12,7 @@
                                 <a href="#">{{@$thread->topic->user->username}}</a>
                             </div>
                             <a href="#" class="tt-info-time">
-                                <i class="tt-icon"><svg><use xlink:href="#icon-time"></use></svg></i>6 Jan,2019
+                                <i class="tt-icon"><svg><use xlink:href="#icon-time"></use></svg></i>{{@$thread->posted_at()}}
                             </a>
                         </div>
                         <h3 class="tt-item-title">
@@ -36,18 +36,9 @@
                         </p>
                     </div>
                     <div class="tt-item-info info-bottom">
-                        <a href="#" class="tt-icon-btn">
-                            <i class="tt-icon"><svg><use xlink:href="#icon-like"></use></svg></i>
-                            <span class="tt-text">671</span>
-                        </a>
-                        <a href="#" class="tt-icon-btn">
-                            <i class="tt-icon"><svg><use xlink:href="#icon-dislike"></use></svg></i>
-                            <span class="tt-text">39</span>
-                        </a>
-                        <a href="#" class="tt-icon-btn">
-                            <i class="tt-icon"><svg><use xlink:href="#icon-favorite"></use></svg></i>
-                            <span class="tt-text">12</span>
-                        </a>
+                        <livewire:reactions :thread="$thread"/>
+
+
                         <div class="col-separator"></div>
                         <a href="#" class="tt-icon-btn tt-hover-02 tt-small-indent">
                             <i class="tt-icon"><svg><use xlink:href="#icon-share"></use></svg></i>
@@ -68,7 +59,7 @@
                         <div class="tt-item">
                             <a href="#" class="tt-icon-btn tt-position-bottom">
                                 <i class="tt-icon"><svg><use xlink:href="#icon-reply"></use></svg></i>
-                                <span class="tt-text">283</span>
+                                <span class="tt-text">{{@$thread->comments->count()}}</span>
                             </a>
                         </div>
                         <div class="tt-item">
@@ -76,19 +67,9 @@
                                 <i class="tt-icon"><svg><use xlink:href="#icon-view"></use></svg></i>
                                 <span class="tt-text">{{@$thread->views->count()}}</span>
                             </a>
+
                         </div>
-                        <div class="tt-item">
-                            <a href="#" class="tt-icon-btn tt-position-bottom">
-                                <i class="tt-icon"><svg><use xlink:href="#icon-user"></use></svg></i>
-                                <span class="tt-text">168</span>
-                            </a>
-                        </div>
-                        <div class="tt-item">
-                            <a href="#" class="tt-icon-btn tt-position-bottom">
-                                <i class="tt-icon"><svg><use xlink:href="#icon-like"></use></svg></i>
-                                <span class="tt-text">2.4k</span>
-                            </a>
-                        </div>
+
 
 
                     </div>
@@ -101,5 +82,4 @@
     @include('_make-comment')
 
 
-    @dump(2)
 </x-master>
